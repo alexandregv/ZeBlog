@@ -1,0 +1,32 @@
+<%= page_heading "Catégories" %>
+
+<h1>Catégories</h1>
+
+<hr style="height:1px; color:#333; background-color:#333;" />
+
+<table class="table">
+    <thead>
+        <tr>
+           <td>ID</td>
+           <td>Nom</td>
+           <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @categories.each do |category| %>
+            <tr>
+                <td><%= category.id %></td>
+                <td><%= category.name %></td>
+                <td>
+                    <a href="<%= category_path(category.id) %>" class="btn btn-success">Voir les articles</a>
+                    <a href="<%= edit_category_path(category.id) %>" class="btn btn-primary">Editer</a>
+                    <a href="<%= category_path(category.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer cette catégorie ?" data-method="DELETE">Supprimer</a>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p>
+    <a href="<%= new_category_path %>" class="btn btn-success">Créer une categorie</a>
+</p>

@@ -1,0 +1,11 @@
+<%= page_heading @category.name %>
+
+<h1><%= @category.name %></h1>
+
+<hr style="height:1px; color:#333; background-color:#333;"/><br>
+
+<%= render @category %>
+
+<p>
+    <a href="<%= categories_path %>" class="btn btn-success">Revenir aux catégories</a>
+</p>

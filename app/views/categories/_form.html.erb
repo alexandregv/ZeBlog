@@ -1,0 +1,27 @@
+<% if @category.invalid? %>
+    <% @category.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger">
+            <%= msg %>
+        </div>
+    <% end %>
+<% end %>
+
+<%= form_for @category do |f| %>
+    <!-- Nom -->
+    <div class="form-group">
+        <label>Nom</label>
+        <%= f.text_field :name, placeholder: 'Développement Ruby', class: 'form-control' %>
+    </div>
+    
+    <!-- Slug -->
+    <div class="form-group">
+        <label>URL</label>
+        <%= f.text_field :slug, placeholder: 'developpement-ruby', class: 'form-control' %>
+    </div>
+    
+    <!-- Actions -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <a href="<%= categories_path %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir annuler ?">Annuler</a>
+    </div>
+<% end %>

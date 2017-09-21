@@ -1,0 +1,17 @@
+<p>
+    <h2 style="display: inline;"><%= post.name %></h2>
+    <h5 style="display: inline;">(<%= post.category.name %>)</h5>
+</p>
+<p><%= simple_format(post.content) %></p>
+
+<% if params[:controller] == 'posts' && params[:action] == 'show' %>
+    <p>Publié par <%= post.author %> (<i><%= post.created_at %>)</i></p>
+    <a href="<%= edit_post_path(post.id) %>" class="btn btn-primary"> Editer</a>
+    <a href="<%= post_path(post.id) %>"      class="btn btn-danger" data-confirm="Êtes-vous sûr ?" data-method="DELETE"> Supprimer</a>
+<% else %>
+    <p><a href="<%= post_path(post.id) %>"   class="btn btn-success"> Lire la suite</a></p>
+<% end %>
+    
+<% unless post == @posts.last %>
+    <hr style="margin: 30px 0px 25px 0px"/> 
+<% end %>

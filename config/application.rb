@@ -13,5 +13,13 @@ module Test
     # -- all .rb files in that directory are automatically loaded.
     
     #config.autoload_paths << "#{Rails.root}/app/validators"
+    
+    config.generators do |g|
+      g.assets            false
+      g.helper            false
+      g.test_framework    nil
+      g.jbuilder          false
+    end
+    
   end
 end

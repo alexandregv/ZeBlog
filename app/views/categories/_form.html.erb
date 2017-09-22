@@ -1,11 +1,3 @@
-<% if @category.invalid? %>
-    <% @category.errors.full_messages.each do |msg| %>
-        <div class="alert alert-danger">
-            <%= msg %>
-        </div>
-    <% end %>
-<% end %>
-
 <%= form_for @category do |f| %>
     <!-- Nom -->
     <div class="form-group">

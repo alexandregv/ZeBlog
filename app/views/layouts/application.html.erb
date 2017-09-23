@@ -58,11 +58,14 @@
 			</ul>
 			<hr class="hidden-sm-up hidden-md-up" id="navigation">
 			<ul class="navbar-nav justify-content-end">
+				<!-- Connexion -->
 				<li class="nav-item">
-					<a class="nav-link <%= 'active' if params[:action] == 'connexion' %>" href="<%#= connexion_path %>" title="Tout le monde peut se connecter ici."><i class="fa fa-sign-in "></i> Se connecter</a>
+					<a class="nav-link <%= 'active' if params[:action] == 'connexion' %>" href="#" title="Tout le monde peut se connecter ici."><i class="fa fa-sign-in "></i> Se connecter</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link <%= 'active' if params[:action] == 'enregistrement' %>" href="<%#= enregistrement_path %>" title="Seulement les élèves s'enregistrent sur cette page."><i class="fa fa-user-plus" aria-hidden="true"></i> S'enregistrer</a>
+				
+                <!-- Inscription -->
+                <li class="nav-item">
+					<a class="nav-link <%= 'active' if params[:action] == 'enregistrement' %>" href="#" title="Seulement les élèves s'enregistrent sur cette page."><i class="fa fa-user-plus" aria-hidden="true"></i> S'enregistrer</a>
 				</li>
 			</ul>
 		</div>

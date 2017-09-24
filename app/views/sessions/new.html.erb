@@ -1,0 +1,28 @@
+<%= page_heading "Connexion" %>
+
+<%= form_for :user, url: sessions_path do |f| %>
+    <div class="card">
+        <div class="card-header">Se connecter</div>
+      
+        <!-- Name or Mail -->
+        <div class="card-body">
+            <%= f.label :name, "Nom d'utilisateur ou mail", class: 'card-title' %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      
+      
+        <!-- Password -->
+        <div class="card-body">
+            <%= f.label :password, "Mot de passe" %>
+            <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        
+        
+        <!-- Confirmer/Annuler -->
+        <div class="card-body">
+          <button type="submit" class="btn btn-success">Se connecter</button>
+          <a href="<%= root_path %>" class="btn btn-danger">Annuler</a>
+        </div>
+        
+    </div>
+<% end %>

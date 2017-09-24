@@ -56,12 +56,12 @@
 			<ul class="navbar-nav justify-content-end">
 				<!-- Connexion -->
 				<li class="nav-item">
-					<a class="nav-link <%= 'active' if params[:action] == 'connexion' %>" href="#" title="Tout le monde peut se connecter ici."><i class="fa fa-sign-in "></i> Se connecter</a>
+					<a class="nav-link <%= 'active' if params[:controller] == 'sessions' && params[:action] == 'new' %>" href="<%= new_session_path %>" title="Tout le monde peut se connecter ici."><i class="fa fa-sign-in "></i> Se connecter</a>
 				</li>
 				
                 <!-- Inscription -->
                 <li class="nav-item">
-					<a class="nav-link <%= 'active' if params[:action] == 'enregistrement' %>" href="<%= new_user_path %>" title="Seulement les élèves s'enregistrent sur cette page."><i class="fa fa-user-plus" aria-hidden="true"></i> S'enregistrer</a>
+					<a class="nav-link <%= 'active' if params[:controller] == 'users' && params[:action] == 'new' %>" href="<%= new_user_path %>" title="Seulement les élèves s'enregistrent sur cette page."><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire</a>
 				</li>
 			</ul>
 		</div>

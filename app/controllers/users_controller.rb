@@ -27,17 +27,21 @@ class UsersController < ApplicationController
     def confirm
         @user = User.find(params[:id])
         
-        if @user.confirmation_token == params[:token]
-            @user.confirmed = true
-            @user.confirmation_token = nil
-            @user.save(validate: false)
-            
-            session[:user] = {id: @user.id}
-            
-            redirect_to edit_user_path(@user.id), success: "Votre compte a bien été confirmé."
+        if @user.confirmed
+            redirect_to root_path, danger: "Ce compte a déjà été validé."
         else
-            # TODO: Créer une vue de confirmation et rediriger dessus
-            redirect_to new_user_path, danger: "Le token de validation n'est pas valide."
+            if @user.confirmation_token == params[:token]
+                @user.confirmed = true
+                @user.confirmation_token = nil
+                @user.save(validate: false)
+                
+                session[:user] = {id: @user.id}
+                
+                redirect_to edit_user_path(@user.id), success: "Votre compte a bien été confirmé."
+            else
+                # TODO: Créer une vue de confirmation et rediriger dessus
+                redirect_to new_user_path, danger: "Le token de validation n'est pas valide."
+            end            
         end
     end
     

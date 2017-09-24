@@ -18,3 +18,6 @@
 
 # Ignore Spring files
 /spring-1000/*
+
+# Ignore Users files
+/public/users/*

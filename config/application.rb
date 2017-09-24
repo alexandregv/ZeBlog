@@ -14,6 +14,8 @@ module ZeBlog
     
     #config.autoload_paths << "#{Rails.root}/app/validators"
     
+    config.middleware.use Rack::TempfileReaper
+    
     config.site = {
       name: 'ZeBlog'
     }

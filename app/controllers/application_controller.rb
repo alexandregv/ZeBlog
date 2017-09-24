@@ -7,15 +7,17 @@ class ApplicationController < ActionController::Base
   private
   
   def only_signed_in
-    if !current_user
-        redirect_to new_user_path, danger: 'Vous devez vous connecter pour accéder à cette page.'
-    end
+    redirect_to new_session_path, danger: 'Vous devez vous connecter pour accéder à cette page.' unless current_user
+  end
+
+  def only_signed_out
+    redirect_to root_path, danger: "Vous n'avez pas le droit d'accéder à cette page." if user_signed_in?
   end
   
   def user_signed_in?
     !current_user.nil?
   end
-
+  
   def current_user 
     return nil if !session[:user] || !session[:user]['id']
     return @_user if @_user

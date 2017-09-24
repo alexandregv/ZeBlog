@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     before_action :only_signed_in, only: [:edit, :update]
+    before_action :only_signed_out, only: [:new, :create, :confirm]
 
 
     def new

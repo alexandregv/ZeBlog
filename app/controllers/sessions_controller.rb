@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-    # before_action :only_signed_in, only: :destroy
+    before_action :only_signed_out, only: [:new, :create]
 
     def new
     end

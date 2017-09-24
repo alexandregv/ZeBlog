@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     
     
     def edit
-        @user = User.find(session[:user]['id'])
+        @user = current_user
         
         if @user.id.to_s != params[:id]
             redirect_to new_user_path, danger: "Vous n'avez pas accès à cette page."

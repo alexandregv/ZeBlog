@@ -42,6 +42,7 @@ class PostsController < ApplicationController
     def create
         post = Post.new(post_params)
         post.author = current_user.name
+        post.author_id = current_user.id
         if post.valid?
             post.save
             redirect_to post_path(post.id), success: 'Article créé avec succès'

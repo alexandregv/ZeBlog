@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
     before_action :set_post, only: [:show, :update, :destroy, :edit]
+    before_action :only_signed_in, only: [:new, :edit, :update]
 
     def index
         @posts = Post.published.new_to_old.all

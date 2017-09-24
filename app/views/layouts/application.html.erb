@@ -53,17 +53,31 @@
 				</li>
 			</ul>
 			<hr class="hidden-sm-up hidden-md-up" id="navigation">
-			<ul class="navbar-nav justify-content-end">
-				<!-- Connexion -->
-				<li class="nav-item">
-					<a class="nav-link <%= 'active' if params[:controller] == 'sessions' && params[:action] == 'new' %>" href="<%= new_session_path %>" title="Tout le monde peut se connecter ici."><i class="fa fa-sign-in "></i> Se connecter</a>
-				</li>
-				
-                <!-- Inscription -->
-                <li class="nav-item">
-					<a class="nav-link <%= 'active' if params[:controller] == 'users' && params[:action] == 'new' %>" href="<%= new_user_path %>" title="Seulement les élèves s'enregistrent sur cette page."><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire</a>
-				</li>
-			</ul>
+			<% if current_user %>
+                <ul class="navbar-nav justify-content-end">
+                    <!-- Profil -->
+                    <li class="nav-item">
+    					<a class="nav-link <%= 'active' if params[:controller] == 'users' && params[:action] == 'edit' %>" href="<%= edit_user_path(session[:user]['id']) %>" title="Profil"><i class="fa fa-user" aria-hidden="true"></i> Profil</a>
+    				</li>
+    				
+    				<!-- Deconnexion -->
+    				<li class="nav-item">
+    					<a class="nav-link" href="#" title="Se déconnecter"><i class="fa fa-sign-out "></i> Se déconnecter</a>
+    				</li>
+    			</ul>
+			<% else %>
+    			<ul class="navbar-nav justify-content-end">
+    				<!-- Connexion -->
+    				<li class="nav-item">
+    					<a class="nav-link <%= 'active' if params[:controller] == 'sessions' && params[:action] == 'new' %>" href="<%= new_session_path %>" title="Tout le monde peut se connecter ici."><i class="fa fa-sign-in "></i> Se connecter</a>
+    				</li>
+    				
+                    <!-- Inscription -->
+                    <li class="nav-item">
+    					<a class="nav-link <%= 'active' if params[:controller] == 'users' && params[:action] == 'new' %>" href="<%= new_user_path %>" title="Seulement les élèves s'enregistrent sur cette page."><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire</a>
+    				</li>
+    			</ul>
+			<%end %>
 		</div>
 	</nav>
 

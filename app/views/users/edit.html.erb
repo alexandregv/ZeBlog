@@ -1,0 +1,39 @@
+<%= page_heading "Modifier mon profil" %>
+
+<% if @user.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+    <div class="card">
+        <div class="card-header">Modifier mon profil</div>
+      
+        <!-- Name -->
+        <div class="card-body">
+            <%= f.label :name, "Nom d'utilisateur" %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      
+      
+        <!-- Mail -->
+        <div class="card-body">
+            <%= f.label :mail, "Adresse mail" %>
+            <%= f.email_field :mail, class: 'form-control' %>
+        </div>
+        
+        
+        <!-- Confirmer/Annuler -->
+        <div class="card-body">
+          <button type="submit" class="btn btn-success">Enregistrer</button>
+          <a href="<%= root_path %>" class="btn btn-danger">Annuler</a>
+        </div>
+        
+    </div>
+<% end %>

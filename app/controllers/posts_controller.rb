@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
     before_action :set_post, only: [:show, :update, :destroy, :edit]
+    before_action :only_signed_in, only: [:new, :edit, :update]
 
     def index
         @posts = Post.published.new_to_old.all
@@ -39,7 +40,9 @@ class PostsController < ApplicationController
     
     
     def create
-        post = Post.new(post_params_with_author)
+        post = Post.new(post_params)
+        post.author = current_user.name
+        post.author_id = current_user.id
         if post.valid?
             post.save
             redirect_to post_path(post.id), success: 'Article créé avec succès'
@@ -61,9 +64,6 @@ class PostsController < ApplicationController
     
     def post_params
         params.require(:post).permit(:name, :slug, :category_id, :content, :published)
-    end
-    def post_params_with_author
-        params.require(:post).permit(:name, :slug, :author, :category_id, :content, :published)
     end
     
     def set_post

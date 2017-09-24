@@ -1,0 +1,7 @@
+Bonjour <%= @user.name %>,
+
+Il ne vous reste plus qu'une étape pour créer votre compte ZeBlog !
+Validez votre mail avec ce lien: <%= confirm_user_url(id: @user.id, token: @user.confirmation_token) %>
+
+Si le lien ne fonctionne pas, rendez-vous sur la page de confirmation de votre compte et collez-y ce token: <%= @user.confirmation_token %>
+Cette page est disponnible depuis la page de connexion mais aussi à cette adresse: <%#= confirm_user_url %>

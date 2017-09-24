@@ -23,14 +23,6 @@
         <%= f.select :category_id, Category.pluck(:name, :id), {prompt: 'Sélectionnez une catégorie'}, { :class => 'custom-select' } %>
     </div>
     
-    <!-- Auteur -->
-    <% if params[:action] == 'new' %>
-        <div class="form-group">
-            <label>Auteur</label>
-            <%= f.text_field :author, class: 'form-control' %>
-        </div>
-    <% end %>
-    
     <!-- Publication -->
     <div class="form-group">
         <label>Publier</label>

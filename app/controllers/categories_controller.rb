@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
     before_action :set_category, only: [:show, :update, :destroy, :edit]
+    before_action :only_signed_in, only: [:new, :edit, :update]
 
     def index
         @categories = Category.all

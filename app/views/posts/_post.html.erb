@@ -2,7 +2,7 @@
     <h2 style="display: inline;"><%= post.name %></h2>
     <h5 style="display: inline;">(<%= post.category.name %>)</h5>
 </p>
-<p><%= simple_format(post.content) %></p>
+<p><%= simple_format(truncate(post.content, length: 285+3)) %></p>
 
 <% if params[:controller] == 'posts' && params[:action] == 'show' %>
     <p>Publié par <%= post.author %> (<i><%= post.created_at %>)</i></p>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     
     
     def create
-        user_params = params.require(:user).permit(:name, :mail, :password, :password_confirmation)
+        user_params = params.require(:user).permit(:name, :mail, :password, :password_confirmation, :avatar)
         @user = User.new(user_params)
         
         if @user.valid?
@@ -52,7 +52,8 @@ class UsersController < ApplicationController
     
     def update
         @user = current_user
-        user_params = params.require(:user).permit(:name, :mail)        
+        user_params = params.require(:user).permit(:name, :mail, :avatar)        
+        
         if @user.update(user_params)
             redirect_to edit_user_path(@user.id), success: "Votre compte a bien été modifié."
         else

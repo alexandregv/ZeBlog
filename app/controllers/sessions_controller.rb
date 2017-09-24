@@ -23,6 +23,9 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        session.delete :user
+        
+        redirect_to new_session_path, success: 'Vous êtes maintenant déconnecté.'
     end
     
 end

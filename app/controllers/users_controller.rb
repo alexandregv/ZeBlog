@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         @user = current_user
         
         if @user.id.to_s != params[:id]
-            redirect_to new_user_path, danger: "Vous n'avez pas accès à cette page."
+            redirect_to new_session_path, danger: "Vous devez vous connecter pour accéder à cette page."
         end
     end
     

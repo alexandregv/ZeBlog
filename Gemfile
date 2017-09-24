@@ -10,7 +10,7 @@ end
 
 #gem 'slim', '~> 3.0.8'
 #gem 'slim-rails', '~> 3.1.2'
-#gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'rb-readline'
 gem 'mailcatcher'

@@ -51,7 +51,13 @@ class UsersController < ApplicationController
     
     
     def update
-    
+        @user = current_user
+        user_params = params.require(:user).permit(:name, :mail)        
+        if @user.update(user_params)
+            redirect_to edit_user_path(@user.id), success: "Votre compte a bien été modifié."
+        else
+            render :edit
+        end
     end
     
     

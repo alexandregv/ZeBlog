@@ -11,13 +11,13 @@
     </div>
 <% end %>
 
-<%= form_for :user, class: 'form-horizontal' do |f| %>
+<%= form_for @user do |f| %>
     <div class="card">
         <div class="card-header">Modifier mon profil</div>
       
         <!-- Name -->
         <div class="card-body">
-            <%= f.label :name, "Nom d'utilisateur", class: 'card-title' %>
+            <%= f.label :name, "Nom d'utilisateur" %>
             <%= f.text_field :name, class: 'form-control' %>
         </div>
       
@@ -26,20 +26,6 @@
         <div class="card-body">
             <%= f.label :mail, "Adresse mail" %>
             <%= f.email_field :mail, class: 'form-control' %>
-        </div>
-        
-        
-        <!-- Password -->
-        <div class="card-body">
-            <%= f.label :password, "Mot de passe" %>
-            <%= f.password_field :password, class: 'form-control' %>
-        </div>
-        
-        
-        <!-- Password Confirmation -->
-        <div class="card-body">
-            <%= f.label :password_confirmation, "Confirmation du mot de passe" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
         
         

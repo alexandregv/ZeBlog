@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories
   resource  :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit] do
+  resources :users, only: [:new, :create, :edit, :update] do
     member do
       get 'confirm'
     end

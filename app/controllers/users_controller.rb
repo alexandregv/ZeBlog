@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     
     def create
         user_params = params.require(:user).permit(:name, :mail, :password, :password_confirmation, :avatar)
+
         @user = User.new(user_params)
         
         if @user.valid?

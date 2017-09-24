@@ -8,6 +8,7 @@ class User < ApplicationRecord
     after_save :upload_avatar
     after_destroy_commit :destroy_avatar
     
+  
     validates :name, 
         format: {with: /\A[a-zA-Z0-9_]{3,20}\z/},
         uniqueness: {case_sensitive: false}
@@ -16,12 +17,15 @@ class User < ApplicationRecord
         format: {with: /@/},
         uniqueness: {case_sensitive: false}
         
+
     validates :avatar, file: {ext: [:png, :jpg, :jpeg]}
         
+
     
     def get_session
         {id: id}
     end
+
     
     
     def avatar_path

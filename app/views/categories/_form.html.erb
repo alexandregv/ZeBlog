@@ -1,3 +1,5 @@
+<% no_turbolinks %>
+
 <%= form_for @category do |f| %>
     <!-- Nom -->
     <div class="form-group">
@@ -14,6 +16,25 @@
     <!-- Actions -->
     <div class="form-group">
         <button type="submit" class="btn btn-success">Enregistrer</button>
-        <a href="<%= categories_path %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir annuler ?">Annuler</a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancel-modal">Annuler</button>
     </div>
 <% end %>
+
+<!-- Modal -->
+<div class="modal fade" id="cancel-modal" tabindex="-1" role="dialog" aria-labelledby="cancel-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Annuler ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        Toutes les modifications seront perdues.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Reprendre l'édition</button>
+        <a href="<%= categories_path %>" class="btn btn-danger">Oui, annuler</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,5 +8,9 @@ module ApplicationHelper
       content_for(:title){ title }
       # content_tag(:h1, title)
     end
+    
+    def no_turbolinks
+        content_for(:turbolinks){ "data-turbolinks=false" }
+    end
 
 end

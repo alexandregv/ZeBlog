@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: test_ruby
-  password: trDBtwzQwz7eVfzWqrG
+  password: <%= ENV['DB_PASSWORD_DEV'] %>
   host: 149.91.88.123
   port: 3306
 
@@ -53,3 +53,4 @@ test:
 production:
   <<: *default
   database: test_ruby
+  password: <%= ENV['DB_PASSWORD_PROD'] %>
